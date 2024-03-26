@@ -7,25 +7,21 @@ namespace Game
     public class BootStrap : MonoBehaviour
     {
         [SerializeField] private ElementsFactory _elementsFactory;
+        [SerializeField] private LevelController _levelController;
 
-        [SerializeField] private LevelConfig _testLevel;
-        [SerializeField] private LevelConfig _testLevel2;
+        private void Awake() => Init();
 
-        private void Start()
+        private void Init()
         {
-            _elementsFactory.SpawnElements(_testLevel, true);
-            _elementsFactory.OnElementClick += Test;
+            _levelController.Init(_elementsFactory);
+            _levelController.StartLevel(0, true);
         }
 
-        [ContextMenu("Test")]
-        private void Test1()
+        [ContextMenu("Restart")]
+        public void Restart()
         {
-            _elementsFactory.SpawnElements(_testLevel2, neededName: "7");
-        }
-
-        private void Test(string name)
-        {
-            Debug.Log(name);
+            _elementsFactory.Clear();
+            Init();
         }
     }
 }

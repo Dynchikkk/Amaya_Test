@@ -43,7 +43,7 @@ namespace Configs
         /// <summary>
         /// Return list of random elements with no reapeted elements and needed element.
         /// </summary>
-        public IReadOnlyList<Element> GetRandomElementNoRepeat(int count = 1)
+        public IReadOnlyList<Element> GetRandomElementsNoRepeat(int count = 1)
         {
             if (_cashedElements.Count <= 0)
                 GetAllElements();
@@ -68,7 +68,7 @@ namespace Configs
         {
             var neededElement = TryGetElementByName(neededName);
 
-            var elements = GetRandomElementNoRepeat(count);
+            var elements = GetRandomElementsNoRepeat(count);
             if (elements.Contains(neededElement))
                 return elements;
 
@@ -80,6 +80,19 @@ namespace Configs
             var rnd = new System.Random();
             elementsWithNeededName = elementsWithNeededName.OrderBy(x => rnd.Next()).ToList();
             return elementsWithNeededName;
+        }
+
+        public Element GetRandomElementNoRepeat(IReadOnlyList<string> bannedNames)
+        {
+            var elementsWithNoRepaet = new List<Element>();
+            foreach (var element in _cashedElements)
+            {
+                if (bannedNames.Contains(element.Name))
+                    continue;
+                elementsWithNoRepaet.Add(element);
+            }
+
+            return elementsWithNoRepaet[Random.Range(0, elementsWithNoRepaet.Count)];
         }
     }
 

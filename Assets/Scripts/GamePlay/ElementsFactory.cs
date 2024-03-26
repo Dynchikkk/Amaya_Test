@@ -29,7 +29,7 @@ namespace Game.GamePlay
             var elements = levelConfig.GetRandomElementNoRepeat(neededName, matrix.GetSize());
 
             if (_spawned.Count % 2 != matrix.GetSize() % 2)
-                ClearSpawned();
+                Clear();
 
             // Calculate offset
             var constOffset = Vector2.zero;
@@ -69,17 +69,40 @@ namespace Game.GamePlay
                 tempOffset.x = constOffset.x;
                 tempOffset.y -= elSizeY;
             }
+
+            ChangeElemetsCondition(true);
         }
 
-        private void RequestForCheckÑorrectness(string name) =>
-            OnElementClick?.Invoke(name);
+        public void ChooseElement(string name, bool isRight)
+        {
+            foreach (var element in _spawned.Values)
+            {
+                if(element.ElementName == name)
+                {
+                    if (isRight)
+                        element.DoOnRightChoose();
+                    else
+                        element.DoOnWrongChoose();
+                    return;
+                }
+            }
+        }
 
-        private void ClearSpawned()
+        public void ChangeElemetsCondition(bool condition)
+        {
+            foreach(var element in _spawned.Values)
+                element.IsActive = condition;
+        }
+
+        public void Clear()
         {
             foreach (var item in _spawned)
                 Destroy(item.Value.gameObject);
 
             _spawned.Clear();
         }
+
+        private void RequestForCheckÑorrectness(string name) =>
+            OnElementClick?.Invoke(name);
     }
 }

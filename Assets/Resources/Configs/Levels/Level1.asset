@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cad0e443cfe26b458c1eedae4a04ce8, type: 3}
-  m_Name: LevelConfig
+  m_Name: Level1
   m_EditorClassIdentifier: 
   <Matrix>k__BackingField:
-    <Rows>k__BackingField: 3
+    <Rows>k__BackingField: 1
     <Columns>k__BackingField: 3
   _elementsPresets:
   - {fileID: 11400000, guid: 33b35bb7b17eb29478083748ecd09a3d, type: 2}

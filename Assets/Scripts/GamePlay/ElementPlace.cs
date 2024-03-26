@@ -11,6 +11,9 @@ namespace Game.GamePlay
     {
         public event Action<string> OnElementClick = delegate { };
 
+        public string ElementName => _elementName;
+        public bool IsActive { get; set; } = false;
+
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private SpriteRenderer _selfRenderer;
 
@@ -34,7 +37,10 @@ namespace Game.GamePlay
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            DoOnWrongShake();
+            if (!IsActive)
+                return;
+
+            Debug.Log(_elementName);
             OnElementClick?.Invoke(_elementName);
         }
 
@@ -58,13 +64,13 @@ namespace Game.GamePlay
 
         public Vector2 GetSize() { return _selfRenderer.sprite.bounds.size; }
 
-        public void DoOnRightShake()
+        public void DoOnRightChoose()
         {
             _rightParticle.Play();
             ShakeRenderer();
         }
 
-        public void DoOnWrongShake() =>
+        public void DoOnWrongChoose() =>
             ShakeRenderer();
 
         private void ShakeRenderer()

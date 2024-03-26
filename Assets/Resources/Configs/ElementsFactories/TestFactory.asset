@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eead758cd549c074abe64110d19a2bfa, type: 3}
   m_Name: TestFactory
   m_EditorClassIdentifier: 
-  <SpawnAnimSpeed>k__BackingField: 1
+  <SpawnAnimSpeed>k__BackingField: 0.5
+  <ScaleStrength>k__BackingField: 0.75

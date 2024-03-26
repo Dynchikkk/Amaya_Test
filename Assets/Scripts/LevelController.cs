@@ -1,5 +1,6 @@
 using Configs;
 using Game.GamePlay;
+using Game.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,8 +22,9 @@ namespace Game
         private int _currentLevel = 0;
 
         private List<string> _namesToFind;
+        private GameplayWindowController _gameplayWindowController;
 
-        public void Init(ElementsFactory factory)
+        public void Init(ElementsFactory factory, GameplayWindowController controller)
         {
             _namesToFind = new List<string>(_levels.Count);
             FillNonRepeatNamesToFind();
@@ -30,11 +32,15 @@ namespace Game
 
             _elementsFactory = factory;
             _elementsFactory.OnElementClick += CheckAnswer;
+            _elementsFactory.OnElementsShow += UpdateFindedElementText;
+
+            _gameplayWindowController = controller;
         }
 
         private void OnDestroy()
         {
             _elementsFactory.OnElementClick -= CheckAnswer;
+            _elementsFactory.OnElementsShow -= UpdateFindedElementText;
             StopAllCoroutines();
         }
 
@@ -51,6 +57,9 @@ namespace Game
             _elementsFactory.SpawnElements(_levels[num], smooth, CurrentNameToFind);
             Debug.Log($"Find {CurrentNameToFind}");
         }
+
+        private void UpdateFindedElementText() =>
+            _gameplayWindowController.UpdateFindedElement(CurrentNameToFind);
 
         private void CheckAnswer(string name)
         {

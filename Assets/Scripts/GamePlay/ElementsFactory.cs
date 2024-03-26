@@ -8,11 +8,13 @@ namespace Game.GamePlay
     public class ElementsFactory : MonoBehaviour
     {
         public event Action<string> OnElementClick = delegate { };
+        public event Action OnElementsShow = delegate { };
 
         [SerializeField] private ElementsFactoryConfig _config;
         [SerializeField] private ElementPlace _elementPlacePrefab;
 
         private readonly Dictionary<Vector2, ElementPlace> _spawned = new Dictionary<Vector2, ElementPlace>();
+        private int _lastRows = 0, _lastColumns = 0;
 
         private void OnDestroy()
         {
@@ -22,14 +24,19 @@ namespace Game.GamePlay
 
         public void SpawnElements(LevelConfig levelConfig, bool smooth = false, string neededName = "")
         {
-            var elSizeX = _elementPlacePrefab.GetSize().x;
-            var elSizeY = _elementPlacePrefab.GetSize().y;
+            transform.localScale = Vector3.one;
 
             var matrix = levelConfig.Matrix;
             var elements = levelConfig.GetRandomElementNoRepeat(neededName, matrix.GetSize());
 
-            if (_spawned.Count % 2 != matrix.GetSize() % 2)
+            var elSizeX = _elementPlacePrefab.GetSize().x;
+            var elSizeY = _elementPlacePrefab.GetSize().y;
+
+            if ((_lastRows % 2 != matrix.Rows % 2) || (_lastColumns % 2 != matrix.Columns % 2))
                 Clear();
+
+            _lastRows = matrix.Rows;
+            _lastColumns = matrix.Columns;
 
             // Calculate offset
             var constOffset = Vector2.zero;
@@ -70,7 +77,13 @@ namespace Game.GamePlay
                 tempOffset.y -= elSizeY;
             }
 
+            var scaleCoef = matrix.Rows - 3;
+            scaleCoef = scaleCoef > matrix.Columns ? scaleCoef : matrix.Columns - 3;
+            scaleCoef = Mathf.Clamp(scaleCoef, 0, matrix.GetSize());
+            transform.localScale = (float)Math.Pow(_config.ScaleStrength, scaleCoef) * Vector3.one;
+
             ChangeElemetsCondition(true);
+            OnElementsShow?.Invoke();
         }
 
         public void ChooseElement(string name, bool isRight)

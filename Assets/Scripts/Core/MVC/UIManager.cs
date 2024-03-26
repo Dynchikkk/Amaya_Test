@@ -41,5 +41,11 @@ namespace Core.MVC
             controller.Show();
             return controller;
         }
+
+        public IUIController GetWindow(Type T)
+        {
+            var controller = _controllers[T];
+            return controller;
+        }
     }
 }

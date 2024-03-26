@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: LettersPreset
   m_EditorClassIdentifier: 
   _elements:
-  - <Name>k__BackingField: 7
-    <Icon>k__BackingField: {fileID: -675344402919758444, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
-    <RotationClockwise>k__BackingField: 90
-  - <Name>k__BackingField: 8
-    <Icon>k__BackingField: {fileID: 3547489320769246608, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
-    <RotationClockwise>k__BackingField: 90
+  - <Name>k__BackingField: A
+    <Icon>k__BackingField: {fileID: 4963718625464178563, guid: 83fceb399bb707c4591b4fc7a38fc8ca, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: B
+    <Icon>k__BackingField: {fileID: 7783457984840754399, guid: 83fceb399bb707c4591b4fc7a38fc8ca, type: 3}
+    <RotationClockwise>k__BackingField: 0
   - <Name>k__BackingField: C
     <Icon>k__BackingField: {fileID: 3234300448368640894, guid: 83fceb399bb707c4591b4fc7a38fc8ca, type: 3}
     <RotationClockwise>k__BackingField: 0
@@ -45,4 +45,49 @@ MonoBehaviour:
     <RotationClockwise>k__BackingField: 0
   - <Name>k__BackingField: K
     <Icon>k__BackingField: {fileID: -1127063002332224934, guid: 83fceb399bb707c4591b4fc7a38fc8ca, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: L
+    <Icon>k__BackingField: {fileID: -5901097786099144959, guid: 83fceb399bb707c4591b4fc7a38fc8ca, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: M
+    <Icon>k__BackingField: {fileID: 3295844289267200183, guid: 83fceb399bb707c4591b4fc7a38fc8ca, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: R
+    <Icon>k__BackingField: {fileID: -6342808464625005154, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: S
+    <Icon>k__BackingField: {fileID: 8083504644574312765, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: U
+    <Icon>k__BackingField: {fileID: 3270655726746431581, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: V
+    <Icon>k__BackingField: {fileID: -2983290644488427326, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: O
+    <Icon>k__BackingField: {fileID: 5433449995169814141, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: Q
+    <Icon>k__BackingField: {fileID: -4447791616812998045, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: W
+    <Icon>k__BackingField: {fileID: -9165466868132007793, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: T
+    <Icon>k__BackingField: {fileID: -4461999128152558772, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: N
+    <Icon>k__BackingField: {fileID: 7112752472869403061, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: P
+    <Icon>k__BackingField: {fileID: -4252152113809563852, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: X
+    <Icon>k__BackingField: {fileID: 4461586319009975920, guid: 54acf8cbc55d9be489c4d98260eff964, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: Y
+    <Icon>k__BackingField: {fileID: -5001085640463096552, guid: 62b64af41c72c25449084de0b226e479, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: Z
+    <Icon>k__BackingField: {fileID: 3539555106843919260, guid: 62b64af41c72c25449084de0b226e479, type: 3}
     <RotationClockwise>k__BackingField: 0

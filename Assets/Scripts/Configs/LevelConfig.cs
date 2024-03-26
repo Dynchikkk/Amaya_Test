@@ -12,26 +12,21 @@ namespace Configs
         [field: SerializeField] public LevelMatrix Matrix { get; private set; } = new LevelMatrix(3, 3);
         [SerializeField] private List<ElementsPresetsConfig> _elementsPresets = new List<ElementsPresetsConfig>();
 
-        private List<Element> _cashedElements;
 
         public IReadOnlyList<Element> GetAllElements()
         {
-            if (_cashedElements.Count <= 0)
-            {
-                _cashedElements = new List<Element>();
-                foreach (var presets in _elementsPresets)
-                    _cashedElements.AddRange(presets.GetAllElements());
-            }
-
-            return _cashedElements;
+            List<Element> elements = new List<Element>();
+            foreach (var presets in _elementsPresets)
+                elements.AddRange(presets.GetAllElements());
+ 
+            return elements;
         }
 
         public Element TryGetElementByName(string name)
         {
-            if (_cashedElements.Count <= 0)
-                GetAllElements();
+            var elements = GetAllElements();
 
-            foreach (var element in _cashedElements)
+            foreach (var element in elements)
             {
                 if (element.Name == name)
                     return element;
@@ -45,17 +40,16 @@ namespace Configs
         /// </summary>
         public IReadOnlyList<Element> GetRandomElementsNoRepeat(int count = 1)
         {
-            if (_cashedElements.Count <= 0)
-                GetAllElements();
+            var allElements = GetAllElements();
 
             if (count <= 1)
-                return new List<Element> { _cashedElements[Random.Range(0, _cashedElements.Count)] };
+                return new List<Element> { allElements[Random.Range(0, allElements.Count)] };
 
-            if (count >= _cashedElements.Count)
+            if (count >= allElements.Count)
                 return null;
 
             var rnd = new System.Random();
-            var elements = _cashedElements.OrderBy(x => rnd.Next()).Take(count).ToList();
+            var elements = allElements.OrderBy(x => rnd.Next()).Take(count).ToList();
 
             return elements;
         }
@@ -85,7 +79,8 @@ namespace Configs
         public Element GetRandomElementNoRepeat(IReadOnlyList<string> bannedNames)
         {
             var elementsWithNoRepaet = new List<Element>();
-            foreach (var element in _cashedElements)
+            var allElements = GetAllElements();
+            foreach (var element in allElements)
             {
                 if (bannedNames.Contains(element.Name))
                     continue;

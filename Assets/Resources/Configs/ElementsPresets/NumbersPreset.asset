@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da1cd8081f4e844ab7da355b00ddc32, type: 3}
+  m_Name: NumbersPreset
+  m_EditorClassIdentifier: 
+  _elements:
+  - <Name>k__BackingField: 1
+    <Icon>k__BackingField: {fileID: 1422184923334757970, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: 2
+    <Icon>k__BackingField: {fileID: 1808195818850983521, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: 3
+    <Icon>k__BackingField: {fileID: -7900951133411543555, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: 4
+    <Icon>k__BackingField: {fileID: 2267071060405275165, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: 5
+    <Icon>k__BackingField: {fileID: -7398325283844340781, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: 6
+    <Icon>k__BackingField: {fileID: -7015292045520539579, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: 7
+    <Icon>k__BackingField: {fileID: -675344402919758444, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
+    <RotationClockwise>k__BackingField: 90
+  - <Name>k__BackingField: 8
+    <Icon>k__BackingField: {fileID: 3547489320769246608, guid: 1253abaa7aa528f4db09a951444b781f, type: 3}
+    <RotationClockwise>k__BackingField: 90
+  - <Name>k__BackingField: 9
+    <Icon>k__BackingField: {fileID: -1155199509967091035, guid: f14d503670b6bcc41bce3013692ca5fb, type: 3}
+    <RotationClockwise>k__BackingField: 0
+  - <Name>k__BackingField: 10
+    <Icon>k__BackingField: {fileID: 4142021021139464533, guid: 17464d8ece9d8c947bef21285bc0fd98, type: 3}
+    <RotationClockwise>k__BackingField: 0

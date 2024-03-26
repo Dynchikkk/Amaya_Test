@@ -65,8 +65,8 @@ namespace Game.GamePlay
         public Vector2 GetSize() { return _selfRenderer.sprite.bounds.size; }
 
         public void DoOnRightChoose()
-        {
-            _rightParticle.Play();
+        { 
+            _rightParticle.Play(true);
             ShakeRenderer();
         }
 

@@ -50,7 +50,7 @@ namespace Game.UI
             OnWindowFullOpen?.Invoke();
         }
 
-            private IEnumerator CloseAnimation()
+        private IEnumerator CloseAnimation()
         {
             _transitionImage.DOScale(Vector2.one * 20, _animationSpeed);
             yield return new WaitForSeconds(_animationSpeed);
@@ -66,7 +66,7 @@ namespace Game.UI
         }
     }
 
-    public class GameplayWindowModel : UIModel 
+    public class GameplayWindowModel : UIModel
     {
         public string ElementName { get; set; }
     }

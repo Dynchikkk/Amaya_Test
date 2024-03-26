@@ -1,7 +1,4 @@
 ﻿namespace Core.MVC
 {
-    public abstract class UIModel
-    {
-
-    }
+    public abstract class UIModel { }
 }

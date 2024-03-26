@@ -16,15 +16,11 @@ namespace Game.UI
         [Header("Animation")]
         [SerializeField] private float _animationSpeed = 1;
 
-        public override void Init(FinishWindowModel uiModel)
-        {
+        public override void Init(FinishWindowModel uiModel) =>
             _restartButton.onClick.AddListener(RequestForRestart);
-        }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() =>
             _restartButton.onClick.RemoveListener(RequestForRestart);
-        }
 
         public override void Show()
         {

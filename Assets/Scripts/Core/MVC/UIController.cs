@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Core.MVC
 {
-    public abstract class UIController<T, T2> : MonoBehaviour, IUIController 
-        where T : UIView<T2> 
+    public abstract class UIController<T, T2> : MonoBehaviour, IUIController
+        where T : UIView<T2>
         where T2 : UIModel, new()
     {
         public bool IsActive => _view.IsActive;

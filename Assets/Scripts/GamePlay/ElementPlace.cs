@@ -65,7 +65,7 @@ namespace Game.GamePlay
         public Vector2 GetSize() { return _selfRenderer.sprite.bounds.size; }
 
         public void DoOnRightChoose()
-        { 
+        {
             _rightParticle.Play(true);
             ShakeRenderer();
         }
@@ -76,8 +76,7 @@ namespace Game.GamePlay
         private void ShakeRenderer()
         {
             DOTween.Kill(_spriteRenderer, true);
-
-            Sequence shakeSequence = DOTween.Sequence()
+            _ = DOTween.Sequence()
                 .Append(_spriteRenderer.transform.DOShakePosition(
                     duration: _wrongAnimSpeed,
                     strength: _wrongShakeStrength).SetEase(Ease.InBounce));

@@ -13,8 +13,7 @@ namespace Game.UI
             _view.OnRestart += RequestForRestart;
         }
 
-        private void OnDestroy() =>
-            _view.OnRestart -= RequestForRestart;
+        private void OnDestroy() => _view.OnRestart -= RequestForRestart;
 
         private void RequestForRestart() => OnRestart?.Invoke();
     }

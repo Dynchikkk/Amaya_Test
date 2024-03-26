@@ -1,3 +1,4 @@
+using Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,12 @@ namespace Configs
         [field: SerializeField] public LevelMatrix Matrix { get; private set; } = new LevelMatrix(3, 3);
         [SerializeField] private List<ElementsPresetsConfig> _elementsPresets = new List<ElementsPresetsConfig>();
 
-
         public IReadOnlyList<Element> GetAllElements()
         {
             List<Element> elements = new List<Element>();
             foreach (var presets in _elementsPresets)
                 elements.AddRange(presets.GetAllElements());
- 
+
             return elements;
         }
 
@@ -48,17 +48,16 @@ namespace Configs
             if (count >= allElements.Count)
                 return null;
 
-            var rnd = new System.Random();
-            var elements = allElements.OrderBy(x => rnd.Next()).Take(count).ToList();
-
-            return elements;
+            var elements = new List<Element>(allElements);
+            elements.Shuffle();
+            return elements.Take(count).ToList();
         }
 
         /// <summary>
         /// Return list of random elements with no reapeted elements and needed element.
         /// If there is no needed element in dictionary return list witout needed element
         /// </summary>
-        public IReadOnlyList<Element> GetRandomElementNoRepeat(string neededName, int count = 1)
+        public IReadOnlyList<Element> GetRandomElementsNoRepeat(string neededName, int count = 1)
         {
             var neededElement = TryGetElementByName(neededName);
 
@@ -71,8 +70,7 @@ namespace Configs
 
             var elementsWithNeededName = elements.ToList();
             elementsWithNeededName[0] = neededElement;
-            var rnd = new System.Random();
-            elementsWithNeededName = elementsWithNeededName.OrderBy(x => rnd.Next()).ToList();
+            elementsWithNeededName.Shuffle();
             return elementsWithNeededName;
         }
 

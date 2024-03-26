@@ -1,9 +1,9 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 
 namespace Core.MVC
 {
-    public abstract class UIManager<TM> : Singleton<TM> 
+    public abstract class UIManager<TM> : Singleton<TM>
         where TM : UIManager<TM>
     {
         protected Dictionary<Type, IUIController> _controllers = new Dictionary<Type, IUIController>();
@@ -36,7 +36,7 @@ namespace Core.MVC
         {
             if (hideOtherWindows)
                 HideAll();
-            
+
             var controller = _controllers[T];
             controller.Show();
             return controller;

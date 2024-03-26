@@ -2,15 +2,15 @@
 
 namespace Core
 {
-    public class Singleton<T> : MonoBehaviour, ICreate where T : MonoBehaviour 
+    public class Singleton<T> : MonoBehaviour, ICreate where T : MonoBehaviour
     {
         public static T Instance { get; protected set; }
 
         protected virtual void Awake()
         {
-            if (Instance == null) 
+            if (Instance == null)
                 return;
-            
+
             Create();
         }
 
@@ -23,7 +23,7 @@ namespace Core
             else
                 DestroyDuplicate();
         }
-        
+
         private void DestroyDuplicate() => Destroy(this);
     }
 

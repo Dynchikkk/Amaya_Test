@@ -70,7 +70,7 @@ namespace Game
                 return;
 
             _currentLevel++;
-            _elementsFactory.ChangeElemetsCondition(false);
+            _elementsFactory.ChangeElementsCondition(false);
 
             if (_currentLevel >= _levels.Count)
             {
@@ -83,7 +83,7 @@ namespace Game
 
         private void FillNonRepeatNamesToFind()
         {
-            foreach (var level in _levels) 
+            foreach (var level in _levels)
                 _namesToFind.Add(level.GetRandomElementNoRepeat(_namesToFind).Name);
         }
     }

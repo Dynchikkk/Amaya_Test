@@ -23,7 +23,7 @@ namespace Game.UI
 
         public void UpdateFindedElement(string name)
         {
-            _model = new GameplayWindowModel() { ElementName = name};
+            _model = new GameplayWindowModel() { ElementName = name };
             UpdateView();
         }
 

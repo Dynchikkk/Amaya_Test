@@ -1,4 +1,3 @@
-using Configs;
 using Core;
 using Game.GamePlay;
 using Game.UI;
@@ -21,7 +20,7 @@ namespace Game
         {
             foreach (var item in Singletones)
             {
-                if(item.TryGetComponent(out ICreate creatable))
+                if (item.TryGetComponent(out ICreate creatable))
                     creatable.Create();
             }
             MainUIManager.Instance.Init();

@@ -1,6 +1,4 @@
 using Core.MVC;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.UI
@@ -17,10 +15,8 @@ namespace Game.UI
             _finishWindowController.OnRestart += _gameplayWindowController.HideWithAnimation;
         }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() =>
             _finishWindowController.OnRestart -= _gameplayWindowController.HideWithAnimation;
-        }
 
         protected override void AddControllers()
         {

@@ -27,7 +27,7 @@ namespace Game.GamePlay
             transform.localScale = Vector3.one;
 
             var matrix = levelConfig.Matrix;
-            var elements = levelConfig.GetRandomElementNoRepeat(neededName, matrix.GetSize());
+            var elements = levelConfig.GetRandomElementsNoRepeat(neededName, matrix.GetSize());
 
             var elSizeX = _elementPlacePrefab.GetSize().x;
             var elSizeY = _elementPlacePrefab.GetSize().y;
@@ -77,12 +77,9 @@ namespace Game.GamePlay
                 tempOffset.y -= elSizeY;
             }
 
-            var scaleCoef = matrix.Rows - 3;
-            scaleCoef = scaleCoef > matrix.Columns ? scaleCoef : matrix.Columns - 3;
-            scaleCoef = Mathf.Clamp(scaleCoef, 0, matrix.GetSize());
-            transform.localScale = (float)Math.Pow(_config.ScaleStrength, scaleCoef) * Vector3.one;
+            ScaleField(matrix);
+            ChangeElementsCondition(true);
 
-            ChangeElemetsCondition(true);
             OnElementsShow?.Invoke();
         }
 
@@ -90,7 +87,7 @@ namespace Game.GamePlay
         {
             foreach (var element in _spawned.Values)
             {
-                if(element.ElementName == name)
+                if (element.ElementName == name)
                 {
                     if (isRight)
                         element.DoOnRightChoose();
@@ -101,9 +98,17 @@ namespace Game.GamePlay
             }
         }
 
-        public void ChangeElemetsCondition(bool condition)
+        private void ScaleField(LevelMatrix levelMatrix)
         {
-            foreach(var element in _spawned.Values)
+            var scaleCoef = levelMatrix.Rows - 3;
+            scaleCoef = scaleCoef > levelMatrix.Columns ? scaleCoef : levelMatrix.Columns - 3;
+            scaleCoef = Mathf.Clamp(scaleCoef, 0, levelMatrix.GetSize());
+            transform.localScale = (float)Math.Pow(_config.ScaleStrength, scaleCoef) * Vector3.one;
+        }
+
+        public void ChangeElementsCondition(bool condition)
+        {
+            foreach (var element in _spawned.Values)
                 element.IsActive = condition;
         }
 

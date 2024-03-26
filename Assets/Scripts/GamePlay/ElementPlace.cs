@@ -58,10 +58,16 @@ namespace Game.GamePlay
 
         public Vector2 GetSize() { return _selfRenderer.sprite.bounds.size; }
 
-        public void DoOnRightShake() =>
+        public void DoOnRightShake()
+        {
             _rightParticle.Play();
+            ShakeRenderer();
+        }
 
-        public void DoOnWrongShake()
+        public void DoOnWrongShake() =>
+            ShakeRenderer();
+
+        private void ShakeRenderer()
         {
             DOTween.Kill(_spriteRenderer, true);
 

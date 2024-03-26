@@ -14,6 +14,12 @@ namespace Game.GamePlay
 
         private readonly Dictionary<Vector2, ElementPlace> _spawned = new Dictionary<Vector2, ElementPlace>();
 
+        private void OnDestroy()
+        {
+            foreach (var element in _spawned.Values)
+                element.OnElementClick -= RequestForCheckÑorrectness;
+        }
+
         public void SpawnElements(LevelConfig levelConfig, bool smooth = false, string neededName = "")
         {
             var elSizeX = _elementPlacePrefab.GetSize().x;
@@ -63,12 +69,6 @@ namespace Game.GamePlay
                 tempOffset.x = constOffset.x;
                 tempOffset.y -= elSizeY;
             }
-        }
-
-        private void OnDestroy()
-        {
-            foreach (var element in _spawned.Values)
-                element.OnElementClick -= RequestForCheckÑorrectness;
         }
 
         private void RequestForCheckÑorrectness(string name) =>

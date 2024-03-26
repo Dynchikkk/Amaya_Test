@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Matrix>k__BackingField:
     <Rows>k__BackingField: 1
-    <Columns>k__BackingField: 1
+    <Columns>k__BackingField: 3
   _elementsPresets:
   - {fileID: 11400000, guid: 33b35bb7b17eb29478083748ecd09a3d, type: 2}
